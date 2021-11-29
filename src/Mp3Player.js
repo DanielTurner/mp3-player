@@ -61,6 +61,7 @@ export class Mp3Player extends LitElement {
       defaultPlaylist: { type: Array },
       files: { type: Array },
       isPlaying: { type: Boolean },
+      playPromise: { type: Object },
       progress: { type: Number },
       source: { type: String },
       timer: { type: Object },
@@ -99,8 +100,39 @@ export class Mp3Player extends LitElement {
       this.__changeMusicSource(this.currentPlaylist[this.currentIndex]);
     }
     this.__startTimer();
-    this.audio.play();
-    this.isPlaying = true;
+    this.playPromise = this.audio.play();
+
+    if (this.playPromise !== undefined) {
+      this.playPromise.then(() => {
+        this.isPlaying = true;
+      })
+      .catch(() => {
+        this.__addListeners();
+      });
+    }
+  }
+
+  __addListeners() {
+    document.addEventListener('click', () => { this.__eventFunction(); });
+    document.addEventListener('focus', () => { this.__eventFunction(); });
+    document.addEventListener('wheel', () => { this.__eventFunction(); });
+    document.addEventListener(
+      'touchstart', () => { this.__eventFunction(); },
+    );
+  }
+
+  __eventFunction() {
+    this.__removeListeners();
+    this.__playSong();
+  }
+
+  __removeListeners() {
+    document.removeEventListener('click', () => { this.__eventFunction(); });
+    document.removeEventListener('focus', () => { this.__eventFunction(); });
+    document.removeEventListener('wheel', () => { this.__eventFunction(); });
+    document.removeEventListener(
+      'touchstart', () => { this.__eventFunction(); },
+    );
   }
 
   __pauseSong() {
