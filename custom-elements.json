@@ -34,69 +34,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "stories/index.stories.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "Regular"
-        },
-        {
-          "kind": "variable",
-          "name": "CustomTitle"
-        },
-        {
-          "kind": "variable",
-          "name": "CustomCounter"
-        },
-        {
-          "kind": "variable",
-          "name": "SlottedContent"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "stories/index.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Regular",
-          "declaration": {
-            "name": "Regular",
-            "module": "stories/index.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CustomTitle",
-          "declaration": {
-            "name": "CustomTitle",
-            "module": "stories/index.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CustomCounter",
-          "declaration": {
-            "name": "CustomCounter",
-            "module": "stories/index.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SlottedContent",
-          "declaration": {
-            "name": "SlottedContent",
-            "module": "stories/index.stories.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/Mp3Player.js",
       "declarations": [
         {
@@ -106,37 +43,149 @@
           "members": [
             {
               "kind": "method",
-              "name": "__increment"
+              "name": "__playSong"
+            },
+            {
+              "kind": "method",
+              "name": "__addListeners"
+            },
+            {
+              "kind": "method",
+              "name": "__eventFunction"
+            },
+            {
+              "kind": "method",
+              "name": "__removeListeners"
+            },
+            {
+              "kind": "method",
+              "name": "__pauseSong"
+            },
+            {
+              "kind": "method",
+              "name": "__nextSong"
+            },
+            {
+              "kind": "method",
+              "name": "__previousSong"
+            },
+            {
+              "kind": "method",
+              "name": "__openFileBrowser"
+            },
+            {
+              "kind": "method",
+              "name": "__changeMusicSource",
+              "parameters": [
+                {
+                  "name": "source"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "__updateFileList",
+              "parameters": [
+                {
+                  "name": "files"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "__clearTimer"
+            },
+            {
+              "kind": "method",
+              "name": "__startTimer"
+            },
+            {
+              "kind": "method",
+              "name": "__updateProgress"
             },
             {
               "kind": "field",
-              "name": "title",
+              "name": "_audio",
               "type": {
-                "text": "string"
+                "text": "object"
               },
-              "default": "'Hey there'",
-              "privacy": "public",
-              "attribute": "title"
+              "default": "{}"
             },
             {
               "kind": "field",
-              "name": "counter",
+              "name": "_currentIndex",
               "type": {
                 "text": "number"
               },
-              "default": "5",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_currentPlaylist",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_isPlaying",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_playPromise",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "progress",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "privacy": "public",
-              "attribute": "counter"
+              "attribute": "progress"
+            },
+            {
+              "kind": "field",
+              "name": "_timer",
+              "type": {
+                "text": "object"
+              },
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "autoPlay",
+              "privacy": "public",
+              "attribute": "autoPlay"
+            },
+            {
+              "kind": "field",
+              "name": "defaultPlaylist",
+              "privacy": "public",
+              "attribute": "defaultPlaylist"
             }
           ],
           "attributes": [
             {
-              "name": "title",
-              "fieldName": "title"
+              "name": "autoPlay",
+              "fieldName": "autoPlay"
             },
             {
-              "name": "counter",
-              "fieldName": "counter"
+              "name": "defaultPlaylist",
+              "fieldName": "defaultPlaylist"
+            },
+            {
+              "name": "progress",
+              "fieldName": "progress"
             }
           ],
           "superclass": {

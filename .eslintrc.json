@@ -1,7 +1,7 @@
 {
   "parserOptions": {
     // Required for certain syntax usages
-    "ecmaVersion": 2017
+    "ecmaVersion": "latest"
   },
   "plugins": ["lit"],
   "extends": ["@open-wc/eslint-config"],
@@ -12,42 +12,13 @@
       {
         "require": {
           "FunctionDeclaration": true,
-          "MethodDefinition": false,
-          "ClassDeclaration": false,
-          "ArrowFunctionExpression": false,
-          "FunctionExpression": false
+          "MethodDefinition": true,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": true
         }
       }
     ],
-    "class-methods-use-this": "off",
-    // Removed rule "disallow the use of console" from recommended eslint rules
-    "no-console": "off",
-
-    // Removed rule "disallow multiple spaces in regular expressions" from recommended eslint rules
-    "no-regex-spaces": "off",
-
-    // Removed rule "disallow the use of debugger" from recommended eslint rules
-    "no-debugger": "off",
-
-    // Removed rule "disallow unused variables" from recommended eslint rules
-    "no-unused-vars": "off",
-
-    // Removed rule "disallow mixed spaces and tabs for indentation" from recommended eslint rules
-    "no-mixed-spaces-and-tabs": "off",
-
-    "indent": 0,
-
-    // Removed rule "disallow the use of undeclared variables unless mentioned in /*global */ comments" from recommended eslint rules
-    "no-undef": "off",
-
-    // Warn against template literal placeholder syntax in regular strings
-    "no-template-curly-in-string": 1,
-
-    // Warn if return statements do not either always or never specify values
-    "consistent-return": 1,
-
-    // Warn if no return statements in callbacks of array methods
-    "array-callback-return": 1,
 
     // Require the use of === and !==
     "eqeqeq": 2,
@@ -142,6 +113,7 @@
     "lit/no-duplicate-template-bindings": "error",
     "lit/no-invalid-escape-sequences": "error",
     "lit/no-legacy-template-syntax": "error",
+    "lit/no-legacy-imports": "error",
     "lit/no-private-properties": "error",
     "lit/no-property-change-update": "error",
     "lit/no-template-arrow": "warn",
