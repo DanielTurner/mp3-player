@@ -73,6 +73,7 @@ export class Mp3Player extends LitElement {
     this.currentIndex = 0;
     this.isPlaying = false;
     this.progress = 0;
+    this.defaultPlaylist = [];
   }
 
   firstUpdated() {
